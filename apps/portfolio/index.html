@@ -5,11 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Achilles Oliveira — DevOps Engineer & Cloud Solutions. Especialista em AWS, Docker, Kubernetes, Terraform e hospedagem web profissional." />
-  <meta name="keywords" content="DevOps, Cloud, AWS, Docker, Kubernetes, Terraform, Python, CI/CD, Hospedagem, Plesk" />
-  <meta property="og:title" content="Achilles Oliveira — DevOps & Cloud Solutions" />
+    content="Manutenção e infraestrutura web para quem não pode se dar ao luxo de o site sair do ar. Backup testado, certificado, atualização e monitoramento. Diagnóstico técnico gratuito em até 48h." />
+  <meta name="keywords"
+    content="manutenção de site, hospedagem gerenciada, backup, certificado SSL, infraestrutura web, Manaus" />
+  <meta property="og:title" content="Achilles Oliveira — Manutenção e Infraestrutura Web" />
   <meta property="og:description"
-    content="Especialista em DevOps com +6 anos de experiência. AWS, Docker, automação e hospedagem profissional." />
+    content="Cuido da parte do seu site que ninguém vê: servidor, backup testado, certificado e monitoramento. Diagnóstico técnico gratuito em até 48h." />
   <meta property="og:image" content="https://achillesoliveira.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -18,2497 +19,509 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://achillesoliveira.com/og-image.png" />
   <link rel="canonical" href="https://achillesoliveira.com/" />
-  <title>Achilles Oliveira — DevOps & Cloud Solutions</title>
+  <link rel="icon" type="image/png" sizes="512x512" href="./favicon-round.png" />
+  <link rel="shortcut icon" type="image/png" href="./favicon-round.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+  <title>Achilles Oliveira — Manutenção e Infraestrutura Web</title>
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("ao-theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        }
+      } catch (error) {
+        // Ignora falha de storage e mantém tema padrão.
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --bg: #080d1a;
-      --bg2: #0d1426;
-      --card: #111827;
-      --card2: #141d2e;
-      --border: #1e2d42;
-      --border2: #263548;
-      --green: #22c55e;
-      --green-dim: #16a34a;
-      --blue: #3b82f6;
-      --blue-dim: #1d4ed8;
-      --text: #f1f5f9;
-      --text2: #94a3b8;
-      --text3: #64748b;
-      --mono: 'JetBrains Mono', monospace;
-      --sans: 'Inter', sans-serif;
-      --radius: 12px;
-      --radius-sm: 8px;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ─── Scrollbar ─────────────────────────────── */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--border2);
-      border-radius: 3px;
-    }
-
-    /* ─── Utilities ─────────────────────────────── */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .section {
-      padding: 96px 0;
-    }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--green);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .section-sub {
-      font-size: 16px;
-      color: var(--text2);
-      max-width: 600px;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      background: rgba(34, 197, 94, .1);
-      color: var(--green);
-      border: 1px solid rgba(34, 197, 94, .2);
-    }
-
-    .tag.blue {
-      background: rgba(59, 130, 246, .1);
-      color: #60a5fa;
-      border-color: rgba(59, 130, 246, .2);
-    }
-
-    .tag.purple {
-      background: rgba(168, 85, 247, .1);
-      color: #c084fc;
-      border-color: rgba(168, 85, 247, .2);
-    }
-
-    .tag.yellow {
-      background: rgba(234, 179, 8, .1);
-      color: #facc15;
-      border-color: rgba(234, 179, 8, .2);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: var(--radius-sm);
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all .2s;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--green);
-      color: #0a0f1a;
-    }
-
-    .btn-primary:hover {
-      background: #4ade80;
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border2);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--green);
-      color: var(--green);
-      transform: translateY(-1px);
-    }
-
-    /* ─── Nav ───────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(8, 13, 26, .85);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .nav-brand img {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .nav-brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .nav-brand-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.2;
-    }
-
-    .nav-brand-role {
-      font-size: 10px;
-      color: var(--text3);
-      font-family: var(--mono);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 4px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      padding: 6px 14px;
-      border-radius: var(--radius-sm);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text2);
-      text-decoration: none;
-      transition: all .2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--green);
-      background: rgba(34, 197, 94, .08);
-    }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .status-dot {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      color: var(--green);
-      font-family: var(--mono);
-    }
-
-    .status-dot::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      animation: pulse 2s infinite;
-    }
-
-    .nav-menu-btn {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-      padding: 4px;
-    }
-
-    .nav-menu-btn span {
-      width: 22px;
-      height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-      transition: all .3s;
-    }
-
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 64px;
-      left: 0;
-      right: 0;
-      background: var(--bg2);
-      border-bottom: 1px solid var(--border);
-      padding: 16px 24px;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .mobile-menu.open {
-      display: flex;
-    }
-
-    .mobile-menu a {
-      padding: 10px 14px;
-      border-radius: var(--radius-sm);
-      font-size: 14px;
-      color: var(--text2);
-      text-decoration: none;
-      transition: all .2s;
-    }
-
-    .mobile-menu a:hover {
-      color: var(--green);
-      background: rgba(34, 197, 94, .08);
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-        box-shadow: 0 0 0 0 rgba(34, 197, 94, .4);
-      }
-
-      50% {
-        opacity: .8;
-        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0);
-      }
-    }
-
-    /* ─── Hero ──────────────────────────────────── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 64px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(34, 197, 94, .07) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 60% at 80% 20%, rgba(59, 130, 246, .06) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 60% 80%, rgba(168, 85, 247, .04) 0%, transparent 60%);
-    }
-
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 100%);
-      opacity: .3;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 20px;
-      margin-bottom: 24px;
-      background: rgba(34, 197, 94, .08);
-      border: 1px solid rgba(34, 197, 94, .2);
-      font-size: 13px;
-      color: var(--green);
-      font-family: var(--mono);
-    }
-
-    .hero-title {
-      font-size: clamp(36px, 6vw, 72px);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-
-    .hero-title .highlight {
-      background: linear-gradient(135deg, var(--green), #4ade80, #86efac);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-sub {
-      font-size: 18px;
-      color: var(--text2);
-      max-width: 580px;
-      margin-bottom: 40px;
-      line-height: 1.7;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 56px;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .hero-stat-value {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--green);
-      font-family: var(--mono);
-    }
-
-    .hero-stat-label {
-      font-size: 12px;
-      color: var(--text3);
-      margin-top: 2px;
-    }
-
-    .hero-tech-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 48px;
-      padding-top: 40px;
-      border-top: 1px solid var(--border);
-    }
-
-    .hero-tech-label {
-      font-size: 11px;
-      color: var(--text3);
-      font-family: var(--mono);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-    }
-
-    .tech-pill {
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      font-family: var(--mono);
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--text2);
-      transition: all .2s;
-    }
-
-    .tech-pill:hover {
-      border-color: var(--green);
-      color: var(--green);
-    }
-
-    /* ─── About ─────────────────────────────────── */
-    #sobre {
-      background: var(--bg2);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
-    }
-
-    .about-img-wrap {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-
-    .about-img-bg {
-      position: absolute;
-      inset: -20px;
-      background: radial-gradient(ellipse at center, rgba(34, 197, 94, .1), transparent 70%);
-      border-radius: 50%;
-    }
-
-    .about-logo {
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--border2);
-      position: relative;
-      z-index: 1;
-      background: white;
-    }
-
-    .about-badges {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .about-badge {
-      background: var(--card);
-      border: 1px solid var(--border2);
-      border-radius: var(--radius-sm);
-      padding: 8px 14px;
-      font-size: 12px;
-      font-family: var(--mono);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .about-badge .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-    }
-
-    .about-text p {
-      color: var(--text2);
-      margin-bottom: 16px;
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .timeline {
-      margin-top: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .timeline-item {
-      display: flex;
-      gap: 16px;
-    }
-
-    .timeline-line {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .timeline-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--green);
-      flex-shrink: 0;
-      margin-top: 5px;
-    }
-
-    .timeline-track {
-      width: 1px;
-      flex: 1;
-      background: var(--border);
-      margin-top: 6px;
-    }
-
-    .timeline-body {
-      flex: 1;
-    }
-
-    .timeline-period {
-      font-size: 11px;
-      color: var(--green);
-      font-family: var(--mono);
-      margin-bottom: 4px;
-    }
-
-    .timeline-role {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .timeline-company {
-      font-size: 13px;
-      color: var(--text3);
-      margin-bottom: 8px;
-    }
-
-    .timeline-items {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .timeline-items li {
-      font-size: 13px;
-      color: var(--text2);
-      display: flex;
-      gap: 6px;
-    }
-
-    .timeline-items li::before {
-      content: '→';
-      color: var(--green);
-      flex-shrink: 0;
-      font-family: var(--mono);
-    }
-
-    /* ─── Skills ────────────────────────────────── */
-    #habilidades .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 48px;
-    }
-
-    .skill-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      transition: all .3s;
-    }
-
-    .skill-card:hover {
-      border-color: var(--green);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(34, 197, 94, .08);
-    }
-
-    .skill-card-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .skill-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-    }
-
-    .skill-icon.green {
-      background: rgba(34, 197, 94, .1);
-    }
-
-    .skill-icon.blue {
-      background: rgba(59, 130, 246, .1);
-    }
-
-    .skill-icon.purple {
-      background: rgba(168, 85, 247, .1);
-    }
-
-    .skill-icon.orange {
-      background: rgba(249, 115, 22, .1);
-    }
-
-    .skill-card-title {
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .skill-tag {
-      padding: 3px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 500;
-      font-family: var(--mono);
-      background: var(--bg);
-      border: 1px solid var(--border2);
-      color: var(--text2);
-    }
-
-    /* ─── Services ──────────────────────────────── */
-    #servicos {
-      background: var(--bg2);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 48px;
-    }
-
-    .service-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: all .3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--green), var(--blue));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .3s;
-    }
-
-    .service-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .service-card:hover {
-      border-color: var(--border2);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, .3);
-    }
-
-    .service-emoji {
-      font-size: 32px;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .service-title {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .service-desc {
-      font-size: 14px;
-      color: var(--text2);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .service-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .service-features li {
-      font-size: 13px;
-      color: var(--text3);
-      display: flex;
-      gap: 8px;
-    }
-
-    .service-features li::before {
-      content: '✓';
-      color: var(--green);
-      font-weight: 700;
-    }
-
-    /* ─── Portfolio ─────────────────────────────── */
-    .portfolio-tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 32px;
-      margin-top: 48px;
-      flex-wrap: wrap;
-    }
-
-    .portfolio-tab {
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all .2s;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text2);
-    }
-
-    .portfolio-tab.active {
-      background: var(--green);
-      color: #0a0f1a;
-      border-color: var(--green);
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
-    }
-
-    .portfolio-grid.hidden {
-      display: none;
-    }
-
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: all .3s;
-    }
-
-    .project-card:hover {
-      border-color: var(--border2);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
-    }
-
-    .project-header {
-      padding: 20px 24px 0;
-      display: flex;
-      align-items: start;
-      justify-content: space-between;
-    }
-
-    .project-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 11px;
-      font-family: var(--mono);
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-
-    .project-status.done {
-      background: rgba(34, 197, 94, .1);
-      color: var(--green);
-    }
-
-    .project-status.wip {
-      background: rgba(59, 130, 246, .1);
-      color: #60a5fa;
-    }
-
-    .project-status.online {
-      background: rgba(34, 197, 94, .1);
-      color: var(--green);
-    }
-
-    .project-status::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: currentColor;
-    }
-
-    .project-stars {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 12px;
-      color: var(--text3);
-      font-family: var(--mono);
-    }
-
-    .project-body {
-      padding: 16px 24px;
-    }
-
-    .project-type {
-      font-size: 11px;
-      color: var(--text3);
-      font-family: var(--mono);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-bottom: 6px;
-    }
-
-    .project-title {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .project-desc {
-      font-size: 13px;
-      color: var(--text2);
-      line-height: 1.65;
-      margin-bottom: 16px;
-    }
-
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
-
-    .project-tech span {
-      font-family: var(--mono);
-      font-size: 11px;
-      padding: 3px 9px;
-      border-radius: 4px;
-      background: var(--bg);
-      border: 1px solid var(--border2);
-      color: var(--text3);
-    }
-
-    .project-footer {
-      padding: 0 24px 20px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 6px 14px;
-      border-radius: var(--radius-sm);
-      font-size: 12px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all .2s;
-    }
-
-    .project-link.gh {
-      background: var(--bg);
-      border: 1px solid var(--border2);
-      color: var(--text2);
-    }
-
-    .project-link.gh:hover {
-      border-color: var(--green);
-      color: var(--green);
-    }
-
-    .project-link.live {
-      background: rgba(34, 197, 94, .1);
-      border: 1px solid rgba(34, 197, 94, .2);
-      color: var(--green);
-    }
-
-    .project-link.live:hover {
-      background: rgba(34, 197, 94, .2);
-    }
-
-    .hosting-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: all .3s;
-    }
-
-    .hosting-card:hover {
-      border-color: var(--border2);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
-    }
-
-    .hosting-header {
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .hosting-domain {
-      font-family: var(--mono);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--green);
-    }
-
-    .hosting-body {
-      padding: 20px 24px;
-    }
-
-    .hosting-type {
-      font-size: 11px;
-      color: var(--text3);
-      font-family: var(--mono);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-bottom: 6px;
-    }
-
-    .hosting-title {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .hosting-desc {
-      font-size: 13px;
-      color: var(--text2);
-      margin-bottom: 16px;
-      line-height: 1.65;
-    }
-
-    .hosting-stats {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .hosting-stat {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .hosting-stat-val {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--green);
-      font-family: var(--mono);
-    }
-
-    .hosting-stat-label {
-      font-size: 11px;
-      color: var(--text3);
-    }
-
-    .hosting-footer {
-      padding: 0 24px 20px;
-    }
-
-    .hosting-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 14px;
-    }
-
-    .hosting-tech span {
-      font-family: var(--mono);
-      font-size: 11px;
-      padding: 3px 9px;
-      border-radius: 4px;
-      background: var(--bg);
-      border: 1px solid var(--border2);
-      color: var(--text3);
-    }
-
-    /* ─── Infra ──────────────────────────────────── */
-    #infraestrutura {
-      background: var(--bg2);
-    }
-
-    .infra-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
-      margin-top: 48px;
-    }
-
-    .infra-specs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .spec-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      transition: all .3s;
-    }
-
-    .spec-card:hover {
-      border-color: var(--green);
-    }
-
-    .spec-icon {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .spec-label {
-      font-size: 11px;
-      color: var(--text3);
-      font-family: var(--mono);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-bottom: 6px;
-    }
-
-    .spec-value {
-      font-size: 14px;
-      font-weight: 600;
-      font-family: var(--mono);
-      color: var(--text);
-    }
-
-    .infra-features {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-    }
-
-    .infra-features h3 {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .feature-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .feature-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      color: var(--text2);
-    }
-
-    .feature-list li::before {
-      content: '◆';
-      color: var(--green);
-      font-size: 8px;
-      flex-shrink: 0;
-    }
-
-    .server-status {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      margin-top: 16px;
-    }
-
-    .server-status-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .server-status-title {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .server-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-    }
-
-    .server-row:last-child {
-      border-bottom: none;
-    }
-
-    .server-row-label {
-      color: var(--text3);
-      font-family: var(--mono);
-    }
-
-    .server-row-value {
-      color: var(--text2);
-      font-family: var(--mono);
-    }
-
-    .server-row-value.green {
-      color: var(--green);
-    }
-
-    /* ─── Contact ───────────────────────────────── */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 48px;
-      margin-top: 48px;
-      align-items: start;
-    }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 18px 20px;
-      border-radius: var(--radius);
-      background: var(--card);
-      border: 1px solid var(--border);
-      text-decoration: none;
-      color: var(--text);
-      transition: all .3s;
-    }
-
-    .contact-item:hover {
-      border-color: var(--green);
-      transform: translateX(4px);
-    }
-
-    .contact-item-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: var(--radius-sm);
-      background: rgba(34, 197, 94, .1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-
-    .contact-item-label {
-      font-size: 11px;
-      color: var(--text3);
-      font-family: var(--mono);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: 3px;
-    }
-
-    .contact-item-value {
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .contact-hours {
-      padding: 20px;
-      border-radius: var(--radius);
-      background: rgba(34, 197, 94, .05);
-      border: 1px solid rgba(34, 197, 94, .15);
-      margin-top: 8px;
-    }
-
-    .contact-hours-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--green);
-      margin-bottom: 8px;
-    }
-
-    .contact-hours p {
-      font-size: 13px;
-      color: var(--text2);
-    }
-
-    .contact-form {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-    }
-
-    .contact-form h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text2);
-      font-family: var(--mono);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      background: var(--bg);
-      border: 1px solid var(--border2);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      font-size: 14px;
-      font-family: var(--sans);
-      color: var(--text);
-      outline: none;
-      transition: border-color .2s;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--green);
-    }
-
-    .form-group select option {
-      background: var(--card);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .form-submit {
-      width: 100%;
-      margin-top: 8px;
-      justify-content: center;
-    }
-
-    /* ─── Footer ────────────────────────────────── */
-    footer {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 56px 0 32px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 48px;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .footer-brand img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: white;
-    }
-
-    .footer-brand-name {
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .footer-brand-role {
-      font-size: 11px;
-      color: var(--text3);
-      font-family: var(--mono);
-    }
-
-    .footer-about {
-      font-size: 13px;
-      color: var(--text3);
-      line-height: 1.7;
-    }
-
-    .footer-col h4 {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: var(--text2);
-      margin-bottom: 16px;
-      font-family: var(--mono);
-    }
-
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .footer-links a {
-      font-size: 13px;
-      color: var(--text3);
-      text-decoration: none;
-      transition: color .2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--green);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .footer-copy {
-      font-size: 12px;
-      color: var(--text3);
-    }
-
-    .footer-server {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: var(--green);
-      font-family: var(--mono);
-    }
-
-    /* ─── Responsive ────────────────────────────── */
-    @media (max-width: 1024px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-img-wrap {
-        margin-bottom: 40px;
-      }
-
-      .infra-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-
-      .nav-links,
-      .nav-cta .status-dot,
-      .nav-cta .btn {
-        display: none;
-      }
-
-      .nav-menu-btn {
-        display: flex;
-      }
-
-      .about-logo {
-        width: 180px;
-        height: 180px;
-      }
-
-      .infra-specs {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-stats {
-        gap: 24px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .infra-specs {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 64px 0;
-      }
-    }
-
-    /* ─── Animations ─────────────────────────────── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <link rel="stylesheet" href="/site.css" />
 </head>
 
 <body>
 
-  <!-- ─── NAV ─────────────────────────────────────── -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#hero" class="nav-brand">
-        <img src="./logo.png" alt="Achilles Oliveira" />
-        <div class="nav-brand-text">
-          <span class="nav-brand-name">Achilles Oliveira</span>
-          <span class="nav-brand-role">DevOps & Cloud Solutions</span>
-        </div>
+  <!-- ═══ Header ═══ -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="brand">
+        <img src="./logo.jpg" alt="Achilles Oliveira" />
+        <span class="brand-name">Achilles Oliveira</span>
       </a>
-      <ul class="nav-links">
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#habilidades">Skills</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#portfolio">Portfólio</a></li>
-        <li><a href="#infraestrutura">Infra</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-      <div class="nav-cta">
-        <span class="status-dot">Disponível</span>
-        <a href="#contato" class="btn btn-primary" style="padding:8px 18px;font-size:13px;">Contratar</a>
-      </div>
-      <div class="nav-menu-btn" onclick="toggleMenu()" aria-label="Menu">
-        <span></span><span></span><span></span>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ativar modo claro">Modo claro</button>
+        <nav class="header-nav" aria-label="Navegação principal">
+          <a href="#planos">Planos</a>
+          <a href="#solucoes">Soluções</a>
+          <a href="#produtos">Portfólio</a>
+          <a href="#sobre">Sobre</a>
+          <a href="https://github.com/akillez01" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+        <a class="btn btn-primary btn-sm"
+          href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Vim%20pelo%20site%2C%20quero%20falar%20sobre%20manuten%C3%A7%C3%A3o%20do%20meu%20site."
+          target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#sobre" onclick="toggleMenu()">Sobre</a>
-    <a href="#habilidades" onclick="toggleMenu()">Skills</a>
-    <a href="#servicos" onclick="toggleMenu()">Serviços</a>
-    <a href="#portfolio" onclick="toggleMenu()">Portfólio</a>
-    <a href="#infraestrutura" onclick="toggleMenu()">Infraestrutura</a>
-    <a href="#contato" onclick="toggleMenu()">Contato</a>
-  </div>
-
-  <!-- ─── HERO ─────────────────────────────────────── -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
+  <!-- ═══ Hero ═══ -->
+  <section class="hero">
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span>🟢</span> Disponível para novos projetos · Manaus, AM
+      <h1 class="hero-title">Seu site está no ar.<br /><span class="dim">Isso não significa que está
+          seguro.</span></h1>
+      <p class="hero-sub">
+        Cuido da parte que ninguém vê: servidor, backup testado, certificado, atualização e monitoramento.
+        Se algo quebrar às onze da noite, existe alguém responsável.
+      </p>
+      <p class="hero-sub">
+        E além da operação contínua, também atuo como DevOps e desenvolvo sistemas sob medida do zero, do backend à
+        entrega em produção.
+      </p>
+      <div class="hero-focus" aria-label="Frentes principais de atuação">
+        <span>DevOps e Cloud</span>
+        <span>Criação de sistemas do zero</span>
+        <span>Implantação e operação</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary"
+          href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Quero%20pedir%20o%20diagn%C3%B3stico%20gratuito%20do%20meu%20site."
+          target="_blank" rel="noopener">Pedir diagnóstico gratuito</a>
+        <span class="hero-cta-note">Diagnóstico técnico do seu site em até 48h, sem custo e sem compromisso.</span>
+      </div>
+
+      <!-- Verificador de domínio fica para a v1.1 (endpoint em VPS). Teaser manual por enquanto. -->
+      <div class="verifier">
+        <div>
+          <p class="verifier-label">Verificação rápida</p>
+          <p class="verifier-text">Manda o link do seu site aqui no WhatsApp. Confiro certificado, tempo de resposta
+            e o que está exposto no servidor, e te devolvo em minutos.</p>
         </div>
-        <h1 class="hero-title">
-          DevOps Engineer<br />
-          &amp; <span class="highlight">Cloud Solutions</span>
-        </h1>
-        <p class="hero-sub">
-          Especialista em DevOps com +6 anos de experiência em infraestrutura e suporte técnico.
-          Soluções em AWS, Docker, automação de pipelines e hospedagem web profissional.
-        </p>
-        <div class="hero-actions">
-          <a href="#portfolio" class="btn btn-primary">Ver Portfólio</a>
-          <a href="#contato" class="btn btn-outline">Falar Comigo</a>
-          <a href="https://github.com/akillez01" target="_blank" rel="noopener" class="btn btn-outline">GitHub ↗</a>
-        </div>
-        <div class="hero-stats">
-          <div>
-            <div class="hero-stat-value">+6</div>
-            <div class="hero-stat-label">Anos de experiência</div>
-          </div>
-          <div>
-            <div class="hero-stat-value">10+</div>
-            <div class="hero-stat-label">Projetos entregues</div>
-          </div>
-          <div>
-            <div class="hero-stat-value">99.9%</div>
-            <div class="hero-stat-label">Uptime garantido</div>
-          </div>
-          <div>
-            <div class="hero-stat-value">3+</div>
-            <div class="hero-stat-label">Certificações</div>
-          </div>
-        </div>
-        <div class="hero-tech-row">
-          <span class="hero-tech-label">Stack</span>
-          <span class="tech-pill">Docker</span>
-          <span class="tech-pill">Kubernetes</span>
-          <span class="tech-pill">Terraform</span>
-          <span class="tech-pill">AWS</span>
-          <span class="tech-pill">GitLab CI</span>
-          <span class="tech-pill">Python</span>
-          <span class="tech-pill">Plesk</span>
-        </div>
+        <a class="btn btn-primary"
+          href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Quero%20verificar%20meu%20site%3A%20"
+          target="_blank" rel="noopener">Verificar meu site</a>
       </div>
     </div>
   </section>
 
-  <!-- ─── SOBRE ──────────────────────────────────── -->
-  <section id="sobre" class="section">
+  <!-- ═══ O que costuma estar errado ═══ -->
+  <section class="section" id="sintomas">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-img-wrap fade-in">
-          <div class="about-img-bg"></div>
-          <img src="./logo.png" alt="Achilles Oliveira" class="about-logo" />
-          <div class="about-badges">
-            <div class="about-badge"><span class="dot"></span> Servidor online</div>
-            <div class="about-badge"><span class="dot"></span> +6 anos exp.</div>
+      <p class="eyebrow">Nos últimos 20 sites que verifiquei</p>
+      <h2 class="section-title">O que costuma estar errado</h2>
+      <p class="section-sub">Os mesmos quatro problemas aparecem quase sempre, e nenhum deles avisa antes de doer.
+      </p>
+
+      <div class="symptom-grid">
+        <article class="symptom-card">
+          <span class="symptom-rank">01</span>
+          <h3>O backup existe, mas nunca foi testado.</h3>
+          <p>Backup que nunca foi restaurado é só um arquivo grande ocupando espaço.</p>
+        </article>
+        <article class="symptom-card">
+          <span class="symptom-rank">02</span>
+          <h3>Ninguém tem a senha do painel.</h3>
+          <p>Quem fez o site sumiu, e qualquer mudança vira negociação.</p>
+        </article>
+        <article class="symptom-card">
+          <span class="symptom-rank">03</span>
+          <h3>O certificado vence sem avisar.</h3>
+          <p>O navegador passa a marcar o site como não seguro, e o cliente vai embora antes de entender por quê.</p>
+        </article>
+        <article class="symptom-card">
+          <span class="symptom-rank">04</span>
+          <h3>O celular demora 5 segundos para abrir a primeira imagem.</h3>
+          <p>Metade de quem clica desiste, e o Google rebaixa a posição em busca local.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Planos ═══ -->
+  <section class="section" id="planos">
+    <div class="container">
+      <p class="eyebrow">Preço fixo, sem fidelidade</p>
+      <h2 class="section-title">Planos</h2>
+      <p class="section-sub">Hospedagem, segurança e resposta a incidente. Você escolhe o nível de atenção que o seu
+        site precisa.</p>
+
+      <div class="plans">
+        <div class="plan">
+          <h4>Base</h4>
+          <div class="price">R$ 290<em>/mês</em></div>
+          <ul>
+            <li>Hospedagem gerenciada</li>
+            <li>SSL com renovação automática</li>
+            <li>Backup diário com teste de restauração</li>
+            <li>Monitoramento de disponibilidade</li>
+            <li class="no">Atualizações e hardening</li>
+            <li class="no">Relatório mensal</li>
+            <li>1h de ajuste por mês</li>
+            <li>Resposta a incidente em 24h úteis</li>
+          </ul>
+          <a class="btn btn-ghost"
+            href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Quero%20contratar%20o%20plano%20Base."
+            target="_blank" rel="noopener">Contratar</a>
+        </div>
+
+        <div class="plan is-pick">
+          <span class="plan-tag">Mais escolhido</span>
+          <h4>Gestão</h4>
+          <div class="price">R$ 690<em>/mês</em></div>
+          <ul>
+            <li>Tudo do Base</li>
+            <li>Atualizações e hardening</li>
+            <li>Relatório mensal</li>
+            <li class="no">Banco de dados gerenciado</li>
+            <li class="no">Restauração testada trimestral</li>
+            <li>3h de ajuste por mês</li>
+            <li>Resposta a incidente em 8h úteis</li>
+          </ul>
+          <a class="btn btn-primary"
+            href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Quero%20contratar%20o%20plano%20Gest%C3%A3o."
+            target="_blank" rel="noopener">Contratar</a>
+        </div>
+
+        <div class="plan">
+          <h4>Crítico</h4>
+          <div class="price">R$ 1.490<em>/mês</em></div>
+          <ul>
+            <li>Tudo do Gestão</li>
+            <li>Banco de dados gerenciado</li>
+            <li>Restauração testada trimestral</li>
+            <li>8h de ajuste por mês</li>
+            <li>Resposta a incidente em 4h</li>
+          </ul>
+          <a class="btn btn-ghost"
+            href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Quero%20contratar%20o%20plano%20Cr%C3%ADtico."
+            target="_blank" rel="noopener">Contratar</a>
+        </div>
+      </div>
+
+      <p class="fine-print">
+        Migração e correção inicial a partir de R$ 600, cobrada uma vez. Cancelamento com 30 dias de aviso, e você
+        sai com backup completo em mãos.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ Soluções prontas ═══ -->
+  <section class="section" id="solucoes">
+    <div class="container">
+      <p class="eyebrow">Soluções prontas</p>
+      <h2 class="section-title">Sistemas que já funcionam, prontos para o seu negócio</h2>
+      <p class="section-sub">Produtos que desenvolvi e mantenho em produção. Implanto com a sua marca, nos seus
+        dados e no seu hardware, e sigo cuidando depois.</p>
+
+      <article class="solution-feature">
+        <div class="solution-feature-text">
+          <span class="showcase-status">Demonstração ao vivo</span>
+          <h3>Totem PF — autoatendimento para restaurante</h3>
+          <p>O cliente monta o prato no tablet, paga na maquininha ao lado e acompanha a senha na TV. A cozinha
+            recebe o pedido na hora, sem fila no caixa.</p>
+          <div class="showcase-tags">
+            <span>Restaurantes e marmitarias</span>
+            <span>Stone</span>
+            <span>Tela de cozinha</span>
+            <span>Painel de senhas</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-primary btn-sm" href="/solucoes/totem-pf/">Conhecer o Totem PF</a>
           </div>
         </div>
-        <div class="about-text fade-in">
-          <p class="section-label">Sobre mim</p>
-          <h2 class="section-title">Profissional de TI<br />especializado em DevOps</h2>
+        <img class="solution-feature-img" src="/solucoes/totem-pf/painel-tv.webp" width="1200" height="675"
+          alt="Painel de senhas na TV do salão mostrando pedidos em preparo e prontos" loading="lazy" />
+      </article>
+
+      <div class="solution-grid">
+        <article class="solution-card">
+          <h3>Sistema de Presença</h3>
+          <p>Controle de presença, cadastro de membros e relatórios para igrejas e associações.</p>
+          <a href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Vim%20pelo%20site%20e%20quero%20saber%20sobre%20o%20Sistema%20de%20Presen%C3%A7a."
+            target="_blank" rel="noopener">Quero saber →</a>
+        </article>
+        <article class="solution-card">
+          <h3>Professor de inglês com IA</h3>
+          <p>Conversação guiada e correção para escolas de idioma, com a marca da escola.</p>
+          <a href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Vim%20pelo%20site%20e%20quero%20saber%20sobre%20o%20professor%20de%20ingl%C3%AAs%20com%20IA."
+            target="_blank" rel="noopener">Quero saber →</a>
+        </article>
+        <article class="solution-card">
+          <h3>Portal de Doações</h3>
+          <p>Campanhas, doações e prestação de contas para ONGs e redes de apoio.</p>
+          <a href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Vim%20pelo%20site%20e%20quero%20saber%20sobre%20o%20Portal%20de%20Doa%C3%A7%C3%B5es."
+            target="_blank" rel="noopener">Quero saber →</a>
+        </article>
+        <article class="solution-card">
+          <h3>Estudo musical interativo</h3>
+          <p>Partitura, playback e transposição no navegador para escolas de música.</p>
+          <a href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Vim%20pelo%20site%20e%20quero%20saber%20sobre%20a%20plataforma%20de%20estudo%20musical."
+            target="_blank" rel="noopener">Quero saber →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Produtos e Portfólio ═══ -->
+  <section class="section" id="produtos">
+    <div class="container">
+      <p class="eyebrow">Produtos e portfólio</p>
+      <h2 class="section-title">Projetos em produção e soluções que já entreguei</h2>
+      <p class="section-sub">Além da operação de infraestrutura, também crio sistemas do zero e mantenho produtos
+        completos.
+        Aqui estão alguns trabalhos ativos para você validar escopo e execução.</p>
+
+      <div class="showcase-grid">
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>Angella Barros Studio</h3>
+            <span class="showcase-status">No ar</span>
+          </div>
+          <p>Site, loja e agendamento online de um studio de beleza em Parintins/AM, com painel administrativo e
+            assistente virtual que consulta horários e marca atendimentos.</p>
+          <div class="showcase-tags">
+            <span>Node.js + Express</span>
+            <span>PostgreSQL</span>
+            <span>Agendamento</span>
+            <span>Chat com IA</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://angellabarros.com" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>Layla Vitoria Photography</h3>
+            <span class="showcase-status">No ar</span>
+          </div>
+          <p>Site de fotografia com galerias privadas para clientes, pacotes, pedidos e painel administrativo, com foco
+            em performance no mobile.</p>
+          <div class="showcase-tags">
+            <span>React + Vite</span>
+            <span>Express</span>
+            <span>Galerias de clientes</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://laylavitoria.com.br" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>IPDA</h3>
+            <span class="showcase-status">No ar</span>
+          </div>
+          <p>Sistema de controle de presença em produção, com autenticação, dashboard administrativo e dados em
+            tempo real via Firebase.</p>
+          <div class="showcase-tags">
+            <span>Next.js 15</span>
+            <span>TypeScript</span>
+            <span>Firebase</span>
+            <span>Tailwind</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://ipda.app.br" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>alieniatools</h3>
+            <span class="showcase-status">No ar</span>
+          </div>
+          <p>Professor de inglês com IA: conversação guiada, correção e acompanhamento do aluno, com cadastro e
+            login próprios.</p>
+          <div class="showcase-tags">
+            <span>IA Generativa</span>
+            <span>Node.js + TypeScript</span>
+            <span>PostgreSQL</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://alieniatools.com" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>Cadernim</h3>
+            <span class="showcase-status">No ar</span>
+          </div>
+          <p>Plataforma de estudo musical interativo: partitura no navegador, playback, transposição, controle de
+            andamento e leitura de partituras em PDF.</p>
+          <div class="showcase-tags">
+            <span>TypeScript</span>
+            <span>Web Audio</span>
+            <span>OMR</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://cadernim.com.br" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>Tecnofonia Ancestral</h3>
+            <span class="showcase-status">No ar</span>
+          </div>
+          <p>Site do coletivo cultural Tecnofonia Ancestral: página única, leve e rápida, com identidade visual
+            própria.</p>
+          <div class="showcase-tags">
+            <span>React + TypeScript</span>
+            <span>Vite</span>
+            <span>Site institucional</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://tecnofoniaancestral.com" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>VerdeLedger</h3>
+            <span class="showcase-status is-soon">Startup · em breve</span>
+          </div>
+          <p>Minha startup: MRV e rastreabilidade de créditos de carbono florestais da Amazônia. Documentos com
+            impressão digital SHA-256, lotes registrados em blockchain e certificados que qualquer pessoa confere.</p>
+          <div class="showcase-tags">
+            <span>NestJS + PostgreSQL</span>
+            <span>Solidity · Polygon</span>
+            <span>IPFS</span>
+            <span>Next.js</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://verdledger.app" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="domain-list" aria-label="Outros domínios">
+        <a href="https://verdledger.app" target="_blank" rel="noopener">verdledger.app</a>
+        <a href="https://ecoflowmanaus.com.br" target="_blank" rel="noopener">ecoflowmanaus.com.br</a>
+      </div>
+
+      <div class="repo-strip">
+        <p>Quer ver mais projetos, histórico de commits e stack real de implementação? Meu repositório público está
+          sempre atualizado com os trabalhos ativos.</p>
+        <a class="btn btn-primary btn-sm" href="https://github.com/akillez01" target="_blank" rel="noopener">Ver
+          GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Quem cuida ═══ -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <p class="eyebrow">Quem cuida</p>
+      <h2 class="section-title">Achilles Oliveira</h2>
+
+      <div class="about">
+        <!-- TODO: trocar por uma foto de rosto quando disponível -->
+        <img src="./logo.jpg" alt="Achilles Oliveira" />
+        <div>
           <p>
-            Profissional de TI com mais de 6 anos de experiência em suporte técnico e infraestrutura,
-            atualmente especializado na área de DevOps. Apaixonado por automação, cloud computing e
-            boas práticas de desenvolvimento.
+            Sou Achilles Oliveira, analista de infraestrutura e cloud em Manaus. Atuo em duas frentes: DevOps
+            (infraestrutura, automação e operação) e criação de sistemas do zero para negócios que precisam tirar uma
+            ideia do papel com arquitetura sólida e entrega em produção.
+            Trabalho com servidor, banco de dados e automação em ambiente industrial de grande porte, onde parada
+            custa caro e backup não é opcional.
           </p>
-          <p>
-            Atualmente atuo como Analista de TI pela <strong>Outtech</strong>, alocado na fábrica da
-            Michelin em Manaus, com foco em monitoramento e suporte a servidores e aplicações críticas
-            de prioridade nível 1 e 2 em ambiente industrial de alta exigência.
-          </p>
-          <p>
-            Cursando <strong>Sistemas de Informação</strong> na Faculdade Estácio do Amazonas
-            desde janeiro de 2023, sempre em busca de evolução contínua.
-          </p>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-line">
-                <div class="timeline-dot"></div>
-                <div class="timeline-track"></div>
-              </div>
-              <div class="timeline-body">
-                <div class="timeline-period">Out 2025 – Presente</div>
-                <div class="timeline-role">Analista de TI</div>
-                <div class="timeline-company">Outtech — Alocado na Michelin Manaus (Fábrica de Pneus)</div>
-                <ul class="timeline-items">
-                  <li>Monitoramento contínuo de servidores e aplicações críticas (prioridade nível 1 e 2)</li>
-                  <li>Análise e tratamento de incidentes críticos, garantindo SLA e continuidade operacional</li>
-                  <li>Suporte especializado via ITSM e fluxos de escalonamento estruturados</li>
-                  <li>Diagnóstico de falhas, análise de causa-raiz e documentação de runbooks</li>
-                </ul>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-line">
-                <div class="timeline-dot" style="background:var(--text3)"></div>
-                <div class="timeline-track"></div>
-              </div>
-              <div class="timeline-body">
-                <div class="timeline-period" style="color:var(--text3)">Ago 2022 – Set 2025</div>
-                <div class="timeline-role">Técnico de Suporte SR de T.I</div>
-                <div class="timeline-company">Michelin IBM — Manaus</div>
-                <ul class="timeline-items">
-                  <li>Resolução de incidentes e disponibilidade da infraestrutura</li>
-                  <li>Suporte em servidores, redes e sistemas via ServiceNow</li>
-                  <li>Configuração de acessos em ambientes Windows/Linux</li>
-                </ul>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-line">
-                <div class="timeline-dot" style="background:var(--text3)"></div>
-              </div>
-              <div class="timeline-body">
-                <div class="timeline-period" style="color:var(--text3)">Jan 2019 – Jul 2022</div>
-                <div class="timeline-role">Suporte Técnico</div>
-                <div class="timeline-company">3T Informática — Manaus</div>
-                <ul class="timeline-items">
-                  <li>Atendimento humanizado com foco em satisfação do cliente</li>
-                  <li>Manutenção preventiva/corretiva de equipamentos</li>
-                </ul>
-              </div>
-            </div>
+          <div class="about-tags">
+            <span>PostgreSQL</span>
+            <span>Linux</span>
+            <span>AWS</span>
+            <span>GCP</span>
+            <span>Terraform</span>
+            <span>Plesk</span>
+            <span>Cloudflare</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── SKILLS ─────────────────────────────────── -->
-  <section id="habilidades" class="section">
+  <!-- ═══ Perguntas ═══ -->
+  <section class="section" id="perguntas">
     <div class="container">
-      <div class="fade-in">
-        <p class="section-label">Competências</p>
-        <h2 class="section-title">Stack Técnico</h2>
-        <p class="section-sub">Ferramentas e tecnologias que uso no dia a dia para entregar soluções robustas.</p>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-card fade-in">
-          <div class="skill-card-header">
-            <div class="skill-icon green">🚀</div>
-            <span class="skill-card-title">DevOps & Cloud</span>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Kubernetes</span>
-            <span class="skill-tag">Terraform</span>
-            <span class="skill-tag">AWS</span>
-            <span class="skill-tag">Google Cloud</span>
-            <span class="skill-tag">Azure</span>
-            <span class="skill-tag">CI/CD</span>
-            <span class="skill-tag">GitLab</span>
-          </div>
-        </div>
-        <div class="skill-card fade-in">
-          <div class="skill-card-header">
-            <div class="skill-icon blue">💻</div>
-            <span class="skill-card-title">Desenvolvimento</span>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Django</span>
-            <span class="skill-tag">APIs REST</span>
-            <span class="skill-tag">TypeScript</span>
-          </div>
-        </div>
-        <div class="skill-card fade-in">
-          <div class="skill-card-header">
-            <div class="skill-icon purple">🗄️</div>
-            <span class="skill-card-title">Banco de Dados</span>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">MongoDB</span>
-            <span class="skill-tag">Firebase</span>
-            <span class="skill-tag">Redis</span>
-          </div>
-        </div>
-        <div class="skill-card fade-in">
-          <div class="skill-card-header">
-            <div class="skill-icon orange">🛠️</div>
-            <span class="skill-card-title">Ferramentas & Infra</span>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Git/GitHub</span>
-            <span class="skill-tag">ServiceNow</span>
-            <span class="skill-tag">Linux</span>
-            <span class="skill-tag">Windows Server</span>
-            <span class="skill-tag">Plesk</span>
-            <span class="skill-tag">Nginx</span>
-          </div>
-        </div>
-      </div>
-      <div class="skills-grid" style="margin-top:16px;">
-        <div class="fade-in"
-          style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;grid-column:1/-1">
-          <span
-            style="font-size:12px;color:var(--text3);font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;margin-right:8px;">Certificações</span>
-          <span class="tag">DevOps Trainee · ADA Tech · 2024</span>
-          <span class="tag blue">Java com Spring Boot · DIO.me · 2024</span>
-          <span class="tag purple">GitLab CI/CD, Docker, Kubernetes · Udemy · 2023-24</span>
-        </div>
+      <p class="eyebrow">Perguntas</p>
+      <h2 class="section-title">Antes de você perguntar</h2>
+
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Preciso trocar meu site?</summary>
+          <p>Não. Na maioria dos casos migro o que existe e resolvo o que está errado por baixo.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Você atende site legado feito por outro desenvolvedor?</summary>
+          <p>Sim. WordPress não é minha stack principal, mas se precisar migrar eu faço o diagnóstico, o plano e a
+            migração com segurança.</p>
+        </details>
+        <details class="faq-item">
+          <summary>E se eu quiser sair?</summary>
+          <p>Aviso de 30 dias e você leva backup completo, acesso e domínio. Nada fica preso comigo.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Você atende fora de Manaus?</summary>
+          <p>Sim, todo o atendimento é remoto.</p>
+        </details>
+        <details class="faq-item">
+          <summary>O diagnóstico é gratuito mesmo?</summary>
+          <p>É. Leva cerca de 30 minutos do meu tempo e você fica com o documento mesmo que não contrate nada.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Quanto tempo leva a migração?</summary>
+          <p>De 2 a 5 dias úteis para site institucional, sem tirar o atual do ar durante o processo.</p>
+        </details>
       </div>
     </div>
   </section>
 
-  <!-- ─── SERVIÇOS ────────────────────────────────── -->
-  <section id="servicos" class="section">
+  <!-- ═══ Fechamento ═══ -->
+  <section class="closing">
     <div class="container">
-      <div class="fade-in">
-        <p class="section-label">O que ofereço</p>
-        <h2 class="section-title">Serviços</h2>
-        <p class="section-sub">Soluções completas em DevOps, cloud computing e hospedagem web, com foco em automação,
-          segurança e performance.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card fade-in">
-          <span class="service-emoji">⚙️</span>
-          <div class="service-title">DevOps & CI/CD</div>
-          <div class="service-desc">Implementação de pipelines de CI/CD, automação de deploys e configuração de
-            infraestrutura como código.</div>
-          <ul class="service-features">
-            <li>GitLab CI/CD e GitHub Actions</li>
-            <li>Docker & Kubernetes</li>
-            <li>Terraform (IaC)</li>
-            <li>Automação de deploys</li>
-          </ul>
-        </div>
-        <div class="service-card fade-in">
-          <span class="service-emoji">☁️</span>
-          <div class="service-title">Cloud Solutions</div>
-          <div class="service-desc">Migração e otimização de aplicações para AWS, Google Cloud e Azure com foco em
-            escalabilidade.</div>
-          <ul class="service-features">
-            <li>AWS Services (EC2, S3, RDS)</li>
-            <li>Cloud Migration</li>
-            <li>Monitoramento e alertas</li>
-            <li>Otimização de custos</li>
-          </ul>
-        </div>
-        <div class="service-card fade-in">
-          <span class="service-emoji">🐍</span>
-          <div class="service-title">Desenvolvimento Python</div>
-          <div class="service-desc">Desenvolvimento de APIs REST, automação de processos e sistemas web com Python e
-            Django.</div>
-          <ul class="service-features">
-            <li>APIs REST (Django / FastAPI)</li>
-            <li>Automação de processos</li>
-            <li>Integrações e webhooks</li>
-            <li>Chatbots e IA</li>
-          </ul>
-        </div>
-        <div class="service-card fade-in">
-          <span class="service-emoji">🖥️</span>
-          <div class="service-title">Hospedagem Plesk</div>
-          <div class="service-desc">Hospedagem profissional em servidor Plesk Obsidian 18.0.70 com AlmaLinux para máxima
-            performance.</div>
-          <ul class="service-features">
-            <li>Plesk Obsidian 18.0.70</li>
-            <li>SSL incluído</li>
-            <li>Backup automático</li>
-            <li>99.9% Uptime garantido</li>
-          </ul>
-        </div>
-        <div class="service-card fade-in">
-          <span class="service-emoji">🔧</span>
-          <div class="service-title">Suporte Técnico</div>
-          <div class="service-desc">Suporte técnico avançado baseado em 6+ anos de experiência em infraestrutura e
-            sistemas.</div>
-          <ul class="service-features">
-            <li>Suporte 24/7 para hospedagem</li>
-            <li>Resolução de incidentes</li>
-            <li>Manutenção preventiva</li>
-            <li>Ambientes Windows / Linux</li>
-          </ul>
-        </div>
-        <div class="service-card fade-in">
-          <span class="service-emoji">📐</span>
-          <div class="service-title">Infraestrutura como Código</div>
-          <div class="service-desc">Configuração e gerenciamento de infraestrutura usando Terraform e melhores práticas
-            DevOps.</div>
-          <ul class="service-features">
-            <li>Terraform (IaC)</li>
-            <li>Versionamento de infra</li>
-            <li>Ambientes reproduzíveis</li>
-            <li>Documentação técnica</li>
-          </ul>
-        </div>
-      </div>
+      <h2>Manda o endereço do seu site.</h2>
+      <p>Te devolvo em até 48h um diagnóstico com o que está exposto, o que é urgente e o que pode esperar.</p>
+      <a class="btn btn-primary"
+        href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Aqui%20est%C3%A1%20o%20endere%C3%A7o%20do%20meu%20site%3A%20"
+        target="_blank" rel="noopener">Falar no WhatsApp</a>
     </div>
   </section>
 
-  <!-- ─── PORTFÓLIO ───────────────────────────────── -->
-  <section id="portfolio" class="section">
+  <!-- ═══ Footer ═══ -->
+  <footer class="site-footer">
     <div class="container">
-      <div class="fade-in">
-        <p class="section-label">Trabalhos</p>
-        <h2 class="section-title">Portfólio</h2>
-        <p class="section-sub">Projetos de desenvolvimento e hospedagens ativas que demonstram minha experiência
-          técnica.</p>
-      </div>
-      <div class="portfolio-tabs">
-        <button class="portfolio-tab active" onclick="switchTab('dev', this)">Desenvolvimento</button>
-        <button class="portfolio-tab" onclick="switchTab('hosting', this)">Hospedagem</button>
-      </div>
-
-      <div class="portfolio-grid" id="tab-dev">
-        <div class="project-card fade-in">
-          <div class="project-header">
-            <div>
-              <div class="project-type">Kotlin/Swift · App Mobile + Web</div>
-              <div class="project-title">Cadernim</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:end;gap:6px;">
-              <span class="project-status done">No ar</span>
-            </div>
-          </div>
-          <div class="project-body">
-            <p class="project-desc">MVP full-stack para estudo interativo de hinos: upload de partituras com
-              reconhecimento óptico de música (OMR), renderização musical, playback via WebAudio e transposição em
-              tempo real. App mobile nativo (Kotlin/Swift) + backend.</p>
-            <div class="project-tech">
-              <span>Kotlin</span><span>Swift</span><span>TypeScript</span><span>Docker</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/akillez01/cadernim" target="_blank" rel="noopener"
-              class="project-link gh">GitHub ↗</a>
-            <a href="https://cadernim.com.br" target="_blank" rel="noopener" class="project-link live">Ver Site
-              →</a>
-          </div>
-        </div>
-        <div class="project-card fade-in">
-          <div class="project-header">
-            <div>
-              <div class="project-type">Solidity · Web3 / DAO</div>
-              <div class="project-title">VerdeLedger</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:end;gap:6px;">
-              <span class="project-status done">No ar</span>
-            </div>
-          </div>
-          <div class="project-body">
-            <p class="project-desc">DAO para crédito de carbono e financiamento climático: governança comunitária,
-              tesouraria via smart contracts e cofres Multisig (Gnosis Safe) para rastreabilidade de impacto na
-              blockchain.</p>
-            <div class="project-tech">
-              <span>Solidity</span><span>TypeScript</span><span>Smart Contracts</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/akillez01/VerdeLedger-pro" target="_blank" rel="noopener"
-              class="project-link gh">GitHub ↗</a>
-            <a href="https://verdledger.app" target="_blank" rel="noopener" class="project-link live">Ver Site
-              →</a>
-          </div>
-        </div>
-        <div class="project-card fade-in">
-          <div class="project-header">
-            <div>
-              <div class="project-type">Next.js · Portal Social</div>
-              <div class="project-title">Corrente de Apoio Portal</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:end;gap:6px;">
-              <span class="project-status done">No ar</span>
-            </div>
-          </div>
-          <div class="project-body">
-            <p class="project-desc">Portal de campanhas de apoio social com upload de comprovantes, autenticação
-              server-side e área administrativa protegida (Server Components + Firebase).</p>
-            <div class="project-tech">
-              <span>Next.js 14</span><span>Firebase</span><span>TypeScript</span><span>Tailwind</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/akillez01/corrente-de-apoio-portal" target="_blank" rel="noopener"
-              class="project-link gh">GitHub ↗</a>
-            <a href="https://correntedeapoio.74-208-44-241.plesk.page" target="_blank" rel="noopener"
-              class="project-link live">Ver Site →</a>
-          </div>
-        </div>
-        <div class="project-card fade-in">
-          <div class="project-header">
-            <div>
-              <div class="project-type">Next.js · Sistema de Presença</div>
-              <div class="project-title">IPDA Presença</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:end;gap:6px;">
-              <span class="project-status done">No ar</span>
-            </div>
-          </div>
-          <div class="project-body">
-            <p class="project-desc">Sistema de controle de presença em produção, com autenticação, dashboard
-              administrativo e dados em tempo real via Firebase.</p>
-            <div class="project-tech">
-              <span>Next.js 15</span><span>TypeScript</span><span>Firebase</span><span>Tailwind</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/akillez01/IPDA-SistemadePresenca" target="_blank" rel="noopener"
-              class="project-link gh">GitHub ↗</a>
-            <a href="https://ipda.app.br" target="_blank" rel="noopener" class="project-link live">Ver Site →</a>
-          </div>
-        </div>
-        <div class="project-card fade-in">
-          <div class="project-header">
-            <div>
-              <div class="project-type">JavaScript · Jogo Web</div>
-              <div class="project-title">DEDUTIVO (Pluzzle)</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:end;gap:6px;">
-              <span class="project-status wip">Protótipo</span>
-            </div>
-          </div>
-          <div class="project-body">
-            <p class="project-desc">Puzzle diário de dedução lógica — protótipo web publicado para testes de
-              jogabilidade.</p>
-            <div class="project-tech">
-              <span>JavaScript</span><span>HTML5</span><span>CSS3</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://pluzzle.74-208-44-241.plesk.page" target="_blank" rel="noopener"
-              class="project-link live">Ver Site →</a>
-          </div>
-        </div>
-        <div class="project-card fade-in">
-          <div class="project-header">
-            <div>
-              <div class="project-type">Docker · Plataforma de IA</div>
-              <div class="project-title">AlienIA Tools</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:end;gap:6px;">
-              <span class="project-status done">No ar</span>
-            </div>
-          </div>
-          <div class="project-body">
-            <p class="project-desc">Plataforma de ferramentas de IA em produção, com backend e Postgres em containers
-              Docker Compose e usuários reais cadastrados.</p>
-            <div class="project-tech">
-              <span>Docker Compose</span><span>Node.js</span><span>PostgreSQL</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://alieniatools.com" target="_blank" rel="noopener" class="project-link live">Ver Site
-              →</a>
-          </div>
-        </div>
-        <div class="project-card fade-in">
-          <div class="project-header">
-            <div>
-              <div class="project-type">React · Design Handoff</div>
-              <div class="project-title">MuisiNort</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:end;gap:6px;">
-              <span class="project-status done">No ar</span>
-            </div>
-          </div>
-          <div class="project-body">
-            <p class="project-desc">Plataforma de ensino de violão: laboratório de harmonia, dicionário de acordes e
-              trilhas de estudo.</p>
-            <div class="project-tech">
-              <span>React</span><span>HTML5</span><span>CSS3</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://musinorte.com" target="_blank" rel="noopener" class="project-link live">Ver Site →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-grid hidden" id="tab-hosting">
-        <div class="hosting-card fade-in">
-          <div class="hosting-header">
-            <span class="hosting-domain">musinorte.com.br</span>
-            <span class="project-status online">Online</span>
-          </div>
-          <div class="hosting-body">
-            <div class="hosting-type">Plataforma de Streaming</div>
-            <div class="hosting-title">MusiNorte</div>
-            <div class="hosting-desc">Plataforma de streaming com infraestrutura otimizada para alta demanda de tráfego.
-            </div>
-            <div class="hosting-stats">
-              <div class="hosting-stat">
-                <div class="hosting-stat-val">99.9%</div>
-                <div class="hosting-stat-label">Uptime</div>
-              </div>
-              <div class="hosting-stat">
-                <div class="hosting-stat-val">SSL</div>
-                <div class="hosting-stat-label">Certificado</div>
-              </div>
-            </div>
-          </div>
-          <div class="hosting-footer">
-            <div class="hosting-tech"><span>CDN</span><span>Load Balancer</span><span>Cache</span><span>SSL</span></div>
-            <a href="https://musinorte.com.br" target="_blank" rel="noopener" class="project-link live">Ver Site →</a>
-          </div>
-        </div>
-        <div class="hosting-card fade-in">
-          <div class="hosting-header">
-            <span class="hosting-domain">ipda.app.br</span>
-            <span class="project-status online">Online</span>
-          </div>
-          <div class="hosting-body">
-            <div class="hosting-type">Sistema de Agendamento</div>
-            <div class="hosting-title">IPDA</div>
-            <div class="hosting-desc">Sistema de agendamento web, hospedado com configuração otimizada para performance
-              e segurança.</div>
-            <div class="hosting-stats">
-              <div class="hosting-stat">
-                <div class="hosting-stat-val">99.8%</div>
-                <div class="hosting-stat-label">Uptime</div>
-              </div>
-              <div class="hosting-stat">
-                <div class="hosting-stat-val">SSL</div>
-                <div class="hosting-stat-label">Certificado</div>
-              </div>
-            </div>
-          </div>
-          <div class="hosting-footer">
-            <div class="hosting-tech"><span>Python</span><span>Docker</span><span>Monitoramento</span><span>SSL</span>
-            </div>
-            <a href="https://ipda.app.br" target="_blank" rel="noopener" class="project-link live">Ver Site →</a>
-          </div>
-        </div>
-        <div class="hosting-card fade-in">
-          <div class="hosting-header">
-            <span class="hosting-domain">usalutalivream.com.br</span>
-            <span class="project-status online">Online</span>
-          </div>
-          <div class="hosting-body">
-            <div class="hosting-type">Plataforma de Academia</div>
-            <div class="hosting-title">Usaluta Livream</div>
-            <div class="hosting-desc">Portal corporativo para academia, com alta disponibilidade e performance
-              otimizada.</div>
-            <div class="hosting-stats">
-              <div class="hosting-stat">
-                <div class="hosting-stat-val">99.9%</div>
-                <div class="hosting-stat-label">Uptime</div>
-              </div>
-              <div class="hosting-stat">
-                <div class="hosting-stat-val">SSL</div>
-                <div class="hosting-stat-label">Certificado</div>
-              </div>
-            </div>
-          </div>
-          <div class="hosting-footer">
-            <div class="hosting-tech"><span>Plesk</span><span>SSL</span><span>Backup</span><span>CDN</span></div>
-            <a href="https://usalutalivream.com.br" target="_blank" rel="noopener" class="project-link live">Ver Site
-              →</a>
-          </div>
-        </div>
-        <div class="hosting-card fade-in">
-          <div class="hosting-header">
-            <span class="hosting-domain">loja.ripiiaia.com.br</span>
-            <span class="project-status online">Online</span>
-          </div>
-          <div class="hosting-body">
-            <div class="hosting-type">E-commerce</div>
-            <div class="hosting-title">Loja Ripiiaia</div>
-            <div class="hosting-desc">Loja virtual moderna, responsiva e otimizada para alta performance e vendas
-              online.</div>
-            <div class="hosting-stats">
-              <div class="hosting-stat">
-                <div class="hosting-stat-val">99.9%</div>
-                <div class="hosting-stat-label">Uptime</div>
-              </div>
-              <div class="hosting-stat">
-                <div class="hosting-stat-val">SSL</div>
-                <div class="hosting-stat-label">Certificado</div>
-              </div>
-            </div>
-          </div>
-          <div class="hosting-footer">
-            <div class="hosting-tech"><span>E-commerce</span><span>SSL</span><span>CDN</span><span>Checkout</span></div>
-            <a href="https://loja.ripiiaia.com.br" target="_blank" rel="noopener" class="project-link live">Ver Site
-              →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="fade-in" style="margin-top:40px;">
-        <h3 style="font-size:18px;font-weight:700;margin-bottom:6px;">Outros domínios em produção e teste</h3>
-        <p class="section-sub" style="margin-bottom:20px;">Outros sites e apps que hospedo e mantenho no servidor,
-          entre produção e ambiente de teste.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:10px;">
-          <a href="https://santagataprod.ripiiaia.com.br" target="_blank" rel="noopener" class="tag"
-            style="text-decoration:none;">● Santagata Produções</a>
-          <a href="https://alfastore.tech" target="_blank" rel="noopener" class="tag" style="text-decoration:none;">●
-            Alfa Store Tech</a>
-          <a href="https://ecoflowmanaus.com.br" target="_blank" rel="noopener" class="tag"
-            style="text-decoration:none;">● EcoFlow Brasil</a>
-          <a href="https://laylavitoria.com.br" target="_blank" rel="noopener" class="tag"
-            style="text-decoration:none;">● Layla Vitória Photography</a>
-          <a href="https://mercadocerto.app.br" target="_blank" rel="noopener" class="tag"
-            style="text-decoration:none;">● Mercado Certo</a>
-          <a href="https://financefamily.com.br" target="_blank" rel="noopener" class="tag"
-            style="text-decoration:none;">● FinanceFamily</a>
-          <a href="https://simulamach.74-208-44-241.plesk.page" target="_blank" rel="noopener" class="tag blue"
-            style="text-decoration:none;">● SimulaMach</a>
-          <a href="https://xn--ecosistemas-amaznialegal-lnc.74-208-44-241.plesk.page" target="_blank" rel="noopener"
-            class="tag blue" style="text-decoration:none;">● EcoSistemas Amazônia</a>
-          <a href="https://determined-kapitsa.74-208-44-241.plesk.page" target="_blank" rel="noopener" class="tag blue"
-            style="text-decoration:none;">● Angella Barros Studio</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── INFRAESTRUTURA ──────────────────────────── -->
-  <section id="infraestrutura" class="section">
-    <div class="container">
-      <div class="fade-in">
-        <p class="section-label">Infraestrutura</p>
-        <h2 class="section-title">Servidor Dedicado</h2>
-        <p class="section-sub">Servidor dedicado com tecnologia de ponta para garantir máxima performance, segurança e
-          disponibilidade.</p>
-      </div>
-      <div class="infra-grid">
-        <div>
-          <div class="infra-specs">
-            <div class="spec-card fade-in">
-              <div class="spec-icon">🐧</div>
-              <div class="spec-label">Sistema Operacional</div>
-              <div class="spec-value">AlmaLinux 9.6</div>
-            </div>
-            <div class="spec-card fade-in">
-              <div class="spec-icon">🎛️</div>
-              <div class="spec-label">Painel de Controle</div>
-              <div class="spec-value">Plesk Obsidian 18.0.70</div>
-            </div>
-            <div class="spec-card fade-in">
-              <div class="spec-icon">🔒</div>
-              <div class="spec-label">Certificados SSL</div>
-              <div class="spec-value">13 Válidos</div>
-            </div>
-            <div class="spec-card fade-in">
-              <div class="spec-icon">📡</div>
-              <div class="spec-label">Localização</div>
-              <div class="spec-value">Data Center USA</div>
-            </div>
-            <div class="spec-card fade-in">
-              <div class="spec-icon">🌐</div>
-              <div class="spec-label">Domínios Hospedados</div>
-              <div class="spec-value">46 Domínios</div>
-            </div>
-            <div class="spec-card fade-in">
-              <div class="spec-icon">⚡</div>
-              <div class="spec-label">Uptime</div>
-              <div class="spec-value">99.9%</div>
-            </div>
-          </div>
-          <div class="server-status fade-in" style="margin-top:16px;">
-            <div class="server-status-header">
-              <span class="server-status-title">Status do Servidor</span>
-              <span class="status-dot" style="font-size:12px;">Online</span>
-            </div>
-            <div class="server-row">
-              <span class="server-row-label">Hostname</span>
-              <span class="server-row-value">RipiIaia.host</span>
-            </div>
-            <div class="server-row">
-              <span class="server-row-label">Status</span>
-              <span class="server-row-value green">● Online</span>
-            </div>
-            <div class="server-row">
-              <span class="server-row-label">Resposta</span>
-              <span class="server-row-value green">&lt; 100ms</span>
-            </div>
-            <div class="server-row">
-              <span class="server-row-label">Última atualização</span>
-              <span class="server-row-value">02/08/2026</span>
-            </div>
-          </div>
-        </div>
-        <div class="infra-features fade-in">
-          <h3>Tecnologia Avançada</h3>
-          <p style="font-size:14px;color:var(--text2);margin-bottom:24px;line-height:1.7;">
-            Nossa infraestrutura utiliza as melhores práticas de mercado com servidor Plesk Obsidian,
-            garantindo estabilidade e performance superior.
-          </p>
-          <ul class="feature-list">
-            <li>Backup automatizado e programável</li>
-            <li>Monitoramento 24/7 com Watchdog</li>
-            <li>Docker integrado para containerização</li>
-            <li>Sistema de migração Plesk Migrator</li>
-            <li>Performance Booster para otimização</li>
-            <li>Suporte a múltiplos domínios e SSLs</li>
-            <li>Proteção contra DDoS</li>
-            <li>Firewall e fail2ban configurados</li>
-          </ul>
-          <div
-            style="margin-top:28px;padding:20px;background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:var(--radius);">
-            <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:8px;">Interessado em hospedar?
-            </div>
-            <p style="font-size:13px;color:var(--text2);margin-bottom:14px;">Fale comigo e veja como posso ajudar seu
-              projeto a ter a infraestrutura que merece.</p>
-            <a href="#contato" class="btn btn-primary" style="padding:8px 18px;font-size:13px;">Solicitar hospedagem</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── CONTATO ─────────────────────────────────── -->
-  <section id="contato" class="section" style="background:var(--bg2);">
-    <div class="container">
-      <div class="fade-in">
-        <p class="section-label">Contato</p>
-        <h2 class="section-title">Vamos conversar?</h2>
-        <p class="section-sub">Pronto para começar seu projeto? Entre em contato e vamos discutir como posso ajudar.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info fade-in">
-          <a href="mailto:achilles.oliveira.souza@gmail.com" class="contact-item">
-            <div class="contact-item-icon">📧</div>
-            <div>
-              <div class="contact-item-label">Email</div>
-              <div class="contact-item-value">achilles.oliveira.souza@gmail.com</div>
-            </div>
-          </a>
-          <a href="https://wa.me/5592986366861" target="_blank" rel="noopener" class="contact-item">
-            <div class="contact-item-icon">💬</div>
-            <div>
-              <div class="contact-item-label">WhatsApp</div>
-              <div class="contact-item-value">(92) 98636-6861</div>
-            </div>
-          </a>
-          <a href="https://linkedin.com/in/achilles-oliveira-82a3a021a" target="_blank" rel="noopener"
-            class="contact-item">
-            <div class="contact-item-icon">💼</div>
-            <div>
-              <div class="contact-item-label">LinkedIn</div>
-              <div class="contact-item-value">achilles-oliveira-82a3a021a</div>
-            </div>
-          </a>
-          <a href="https://github.com/akillez01" target="_blank" rel="noopener" class="contact-item">
-            <div class="contact-item-icon">🐙</div>
-            <div>
-              <div class="contact-item-label">GitHub</div>
-              <div class="contact-item-value">github.com/akillez01</div>
-            </div>
-          </a>
-          <a href="https://maps.google.com/?q=Manaus,AM" target="_blank" rel="noopener" class="contact-item">
-            <div class="contact-item-icon">📍</div>
-            <div>
-              <div class="contact-item-label">Localização</div>
-              <div class="contact-item-value">Manaus, AM — Atendimento Remoto</div>
-            </div>
-          </a>
-          <div class="contact-hours">
-            <div class="contact-hours-title">⏰ Horário de Atendimento</div>
-            <p>Segunda a Sexta: 9h às 18h</p>
-            <p style="color:var(--green);margin-top:4px;">Suporte 24/7 para hospedagem</p>
-          </div>
-        </div>
-        <div class="contact-form fade-in">
-          <h3>Solicitar Orçamento</h3>
-          <form onsubmit="handleFormSubmit(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Nome Completo</label>
-                <input type="text" id="name" name="name" placeholder="Seu nome" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="seu@email.com" required />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="service">Tipo de Serviço</label>
-              <select id="service" name="service" required>
-                <option value="" disabled selected>Selecione um serviço</option>
-                <option>DevOps & CI/CD</option>
-                <option>Cloud Solutions (AWS/GCP/Azure)</option>
-                <option>Desenvolvimento Python</option>
-                <option>Hospedagem Plesk</option>
-                <option>Suporte Técnico</option>
-                <option>Infraestrutura como Código</option>
-                <option>Outro</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Descrição do Projeto</label>
-              <textarea id="message" name="message" placeholder="Descreva brevemente o que você precisa..."
-                required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary form-submit">
-              Enviar Mensagem →
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── FOOTER ─────────────────────────────────── -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand">
-            <img src="./logo.png" alt="Achilles Oliveira" />
-            <div>
-              <div class="footer-brand-name">Achilles Oliveira</div>
-              <div class="footer-brand-role">DevOps & Cloud Solutions</div>
-            </div>
-          </div>
-          <p class="footer-about">
-            Especialista em DevOps com +6 anos de experiência em infraestrutura.
-            Oferecendo soluções em cloud, automação e hospedagem profissional.
-          </p>
-        </div>
-        <div>
-          <div class="footer-col">
-            <h4>Serviços</h4>
-            <ul class="footer-links">
-              <li><a href="#servicos">DevOps & CI/CD</a></li>
-              <li><a href="#servicos">Cloud Solutions</a></li>
-              <li><a href="#servicos">Hospedagem</a></li>
-              <li><a href="#servicos">Suporte Técnico</a></li>
-              <li><a href="#servicos">Consultoria DevOps</a></li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col">
-            <h4>Links</h4>
-            <ul class="footer-links">
-              <li><a href="#hero">Início</a></li>
-              <li><a href="#sobre">Sobre</a></li>
-              <li><a href="#portfolio">Portfólio</a></li>
-              <li><a href="#infraestrutura">Infraestrutura</a></li>
-              <li><a href="#contato">Contato</a></li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col">
-            <h4>Contato</h4>
-            <ul class="footer-links">
-              <li><a href="mailto:achilles.oliveira.souza@gmail.com">✉ Email</a></li>
-              <li><a href="https://wa.me/5592986366861" target="_blank" rel="noopener">💬 WhatsApp</a></li>
-              <li><a href="https://linkedin.com/in/achilles-oliveira-82a3a021a" target="_blank" rel="noopener">💼
-                  LinkedIn</a></li>
-              <li><a href="https://github.com/akillez01" target="_blank" rel="noopener">🐙 GitHub</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">© 2026 Achilles Oliveira. Todos os direitos reservados.</span>
-        <span class="footer-server">● Servidor Online — Data Center USA</span>
-      </div>
+      <span>© 2026 Achilles Oliveira · Manaus, AM · Atendimento remoto</span>
+      <span>
+        <a href="mailto:achilles.oliveira.souza@gmail.com">Email</a> ·
+        <a href="https://wa.me/5592986366861" target="_blank" rel="noopener">WhatsApp</a> ·
+        <a href="/privacidade/">Privacidade</a>
+      </span>
     </div>
   </footer>
 
+  <!-- ═══ WhatsApp fixo (mobile) ═══ -->
+  <div class="wa-float">
+    <a class="btn btn-primary"
+      href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Vim%20pelo%20site%2C%20quero%20falar%20sobre%20manuten%C3%A7%C3%A3o%20do%20meu%20site."
+      target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </div>
+
+  <script src="./motion.js"></script>
+  <script src="./theme.js"></script>
   <script>
-    // ─── Mobile menu ──────────────────────────────
-    function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('open');
-    }
-    document.addEventListener('click', function (e) {
-      const menu = document.getElementById('mobileMenu');
-      const btn = document.querySelector('.nav-menu-btn');
-      if (!menu.contains(e.target) && !btn.contains(e.target)) {
-        menu.classList.remove('open');
-      }
-    });
-
-    // ─── Portfolio tabs ───────────────────────────
-    function switchTab(tab, btn) {
-      document.querySelectorAll('.portfolio-tab').forEach(t => t.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('tab-dev').classList.toggle('hidden', tab !== 'dev');
-      document.getElementById('tab-hosting').classList.toggle('hidden', tab !== 'hosting');
-    }
-
-    // ─── Scroll animations ─────────────────────────
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // ─── Nav active section highlight ─────────────
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        if (window.scrollY >= section.offsetTop - 100) {
-          current = section.id;
-        }
-      });
-      navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === '#' + current ? 'var(--green)' : '';
-      });
-    });
-
-    // ─── Contact form ────────────────────────────
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const name = form.name.value;
-      const email = form.email.value;
-      const service = form.service.value;
-      const message = form.message.value;
-
-      const subject = encodeURIComponent(`[Portfólio] ${service} — ${name}`);
-      const body = encodeURIComponent(
-        `Nome: ${name}\nEmail: ${email}\nServiço: ${service}\n\n${message}`
-      );
-      window.open(`mailto:achilles.oliveira.souza@gmail.com?subject=${subject}&body=${body}`, '_blank');
-
-      const btn = form.querySelector('.form-submit');
-      const original = btn.innerHTML;
-      btn.innerHTML = '✓ Mensagem enviada!';
-      btn.style.background = '#16a34a';
-      setTimeout(() => {
-        btn.innerHTML = original;
-        btn.style.background = '';
-        form.reset();
-      }, 3000);
-    }
+    window.Motion.init().start();
   </script>
+
 </body>
 
 </html>
