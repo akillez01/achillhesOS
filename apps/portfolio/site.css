@@ -1094,6 +1094,12 @@ html[data-theme="light"] .solution-feature {
   box-shadow: 0 24px 48px rgba(0, 0, 0, .35);
 }
 
+.product-hero-img.is-wide {
+  max-width: 560px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
 .screens {
   margin-top: 28px;
   display: grid;
