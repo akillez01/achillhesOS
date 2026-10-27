@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Manutenção e infraestrutura web para quem não pode se dar ao luxo de o site sair do ar. Backup testado, certificado, atualização e monitoramento. Diagnóstico técnico gratuito em até 48h." />
+  <meta name="keywords"
+    content="manutenção de site, hospedagem gerenciada, backup, certificado SSL, infraestrutura web, Manaus" />
+  <meta property="og:title" content="Achilles Oliveira — Manutenção e Infraestrutura Web" />
+  <meta property="og:description"
+    content="Cuido da parte do seu site que ninguém vê: servidor, backup testado, certificado e monitoramento. Diagnóstico técnico gratuito em até 48h." />
+  <meta property="og:image" content="https://achillesoliveira.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://achillesoliveira.com/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://achillesoliveira.com/og-image.png" />
+  <link rel="canonical" href="https://achillesoliveira.com/" />
+  <link rel="icon" type="image/png" sizes="512x512" href="./favicon-round.png" />
+  <link rel="shortcut icon" type="image/png" href="./favicon-round.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+  <title>Achilles Oliveira — Manutenção e Infraestrutura Web</title>
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("ao-theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        }
+      } catch (error) {
+        // Ignora falha de storage e mantém tema padrão.
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/site.css" />
+</head>
+
+<body>
+
+  <!-- ═══ Header ═══ -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="brand">
+        <img src="./logo.jpg" alt="Achilles Oliveira" />
+        <span class="brand-name">Achilles Oliveira</span>
+      </a>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ativar modo claro">Modo claro</button>
+        <nav class="header-nav" aria-label="Navegação principal">
+          <a href="#planos">Planos</a>
+          <a href="#solucoes">Soluções</a>
+          <a href="#produtos">Portfólio</a>
+          <a href="#sobre">Sobre</a>
+          <a href="https://github.com/akillez01" target="_blank" rel="noopener">GitHub</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <a class="btn btn-primary btn-sm"
+          href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Vim%20pelo%20site%2C%20quero%20falar%20sobre%20manuten%C3%A7%C3%A3o%20do%20meu%20site."
+          target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ Hero ═══ -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Seu site está no ar.<br /><span class="dim">Isso não significa que está
+          seguro.</span></h1>
+      <p class="hero-sub">
+        Cuido da parte que ninguém vê: servidor, backup testado, certificado, atualização e monitoramento.
+        Se algo quebrar às onze da noite, existe alguém responsável.
+      </p>
+      <p class="hero-sub">
+        E além da operação contínua, também atuo como DevOps e desenvolvo sistemas sob medida do zero, do backend à
+        entrega em produção.
+      </p>
+      <div class="hero-focus" aria-label="Frentes principais de atuação">
+        <span>DevOps e Cloud</span>
+        <span>Criação de sistemas do zero</span>
+        <span>Implantação e operação</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary"
+          href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Quero%20pedir%20o%20diagn%C3%B3stico%20gratuito%20do%20meu%20site."
+          target="_blank" rel="noopener">Pedir diagnóstico gratuito</a>
+        <span class="hero-cta-note">Diagnóstico técnico do seu site em até 48h, sem custo e sem compromisso.</span>
+      </div>
+
+      <!-- Verificador de domínio fica para a v1.1 (endpoint em VPS). Teaser manual por enquanto. -->
+      <div class="verifier">
+        <div>
+          <p class="verifier-label">Verificação rápida</p>
+          <p class="verifier-text">Manda o link do seu site aqui no WhatsApp. Confiro certificado, tempo de resposta
+            e o que está exposto no servidor, e te devolvo em minutos.</p>
+        </div>
+        <a class="btn btn-primary"
+          href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Quero%20verificar%20meu%20site%3A%20"
+          target="_blank" rel="noopener">Verificar meu site</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ O que costuma estar errado ═══ -->
+  <section class="section" id="sintomas">
+    <div class="container">
+      <p class="eyebrow">Nos últimos 20 sites que verifiquei</p>
+      <h2 class="section-title">O que costuma estar errado</h2>
+      <p class="section-sub">Os mesmos quatro problemas aparecem quase sempre, e nenhum deles avisa antes de doer.
+      </p>
+
+      <div class="symptom-grid">
+        <article class="symptom-card">
+          <span class="symptom-rank">01</span>
+          <h3>O backup existe, mas nunca foi testado.</h3>
+          <p>Backup que nunca foi restaurado é só um arquivo grande ocupando espaço.</p>
+        </article>
+        <article class="symptom-card">
+          <span class="symptom-rank">02</span>
+          <h3>Ninguém tem a senha do painel.</h3>
+          <p>Quem fez o site sumiu, e qualquer mudança vira negociação.</p>
+        </article>
+        <article class="symptom-card">
+          <span class="symptom-rank">03</span>
+          <h3>O certificado vence sem avisar.</h3>
+          <p>O navegador passa a marcar o site como não seguro, e o cliente vai embora antes de entender por quê.</p>
+        </article>
+        <article class="symptom-card">
+          <span class="symptom-rank">04</span>
+          <h3>O celular demora 5 segundos para abrir a primeira imagem.</h3>
+          <p>Metade de quem clica desiste, e o Google rebaixa a posição em busca local.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Planos ═══ -->
+  <section class="section" id="planos">
+    <div class="container">
+      <p class="eyebrow">Preço fixo, sem fidelidade</p>
+      <h2 class="section-title">Planos</h2>
+      <p class="section-sub">Hospedagem, segurança e resposta a incidente. Você escolhe o nível de atenção que o seu
+        site precisa.</p>
+
+      <div class="plans">
+        <div class="plan">
+          <h4>Base</h4>
+          <div class="price">R$ 290<em>/mês</em></div>
+          <ul>
+            <li>Hospedagem gerenciada</li>
+            <li>SSL com renovação automática</li>
+            <li>Backup diário com teste de restauração</li>
+            <li>Monitoramento de disponibilidade</li>
+            <li class="no">Atualizações e hardening</li>
+            <li class="no">Relatório mensal</li>
+            <li>1h de ajuste por mês</li>
+            <li>Resposta a incidente em 24h úteis</li>
+          </ul>
+          <a class="btn btn-ghost"
+            href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Quero%20contratar%20o%20plano%20Base."
+            target="_blank" rel="noopener">Contratar</a>
+        </div>
+
+        <div class="plan is-pick">
+          <span class="plan-tag">Mais escolhido</span>
+          <h4>Gestão</h4>
+          <div class="price">R$ 690<em>/mês</em></div>
+          <ul>
+            <li>Tudo do Base</li>
+            <li>Atualizações e hardening</li>
+            <li>Relatório mensal</li>
+            <li class="no">Banco de dados gerenciado</li>
+            <li class="no">Restauração testada trimestral</li>
+            <li>3h de ajuste por mês</li>
+            <li>Resposta a incidente em 8h úteis</li>
+          </ul>
+          <a class="btn btn-primary"
+            href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Quero%20contratar%20o%20plano%20Gest%C3%A3o."
+            target="_blank" rel="noopener">Contratar</a>
+        </div>
+
+        <div class="plan">
+          <h4>Crítico</h4>
+          <div class="price">R$ 1.490<em>/mês</em></div>
+          <ul>
+            <li>Tudo do Gestão</li>
+            <li>Banco de dados gerenciado</li>
+            <li>Restauração testada trimestral</li>
+            <li>8h de ajuste por mês</li>
+            <li>Resposta a incidente em 4h</li>
+          </ul>
+          <a class="btn btn-ghost"
+            href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Quero%20contratar%20o%20plano%20Cr%C3%ADtico."
+            target="_blank" rel="noopener">Contratar</a>
+        </div>
+      </div>
+
+      <p class="fine-print">
+        Migração e correção inicial a partir de R$ 600, cobrada uma vez. Cancelamento com 30 dias de aviso, e você
+        sai com backup completo em mãos.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ Soluções prontas ═══ -->
+  <section class="section" id="solucoes">
+    <div class="container">
+      <p class="eyebrow">Soluções prontas</p>
+      <h2 class="section-title">Sistemas que já funcionam, prontos para o seu negócio</h2>
+      <p class="section-sub">Produtos que desenvolvi e mantenho em produção. Implanto com a sua marca, nos seus
+        dados e no seu hardware, e sigo cuidando depois.</p>
+
+      <article class="solution-feature">
+        <div class="solution-feature-text">
+          <span class="showcase-status">Demonstração ao vivo</span>
+          <h3>Totem PF — autoatendimento para restaurante</h3>
+          <p>O cliente monta o prato no tablet, paga na maquininha ao lado e acompanha a senha na TV. A cozinha
+            recebe o pedido na hora, sem fila no caixa.</p>
+          <div class="showcase-tags">
+            <span>Restaurantes e marmitarias</span>
+            <span>Stone</span>
+            <span>Tela de cozinha</span>
+            <span>Painel de senhas</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-primary btn-sm" href="/solucoes/totem-pf/">Conhecer o Totem PF</a>
+          </div>
+        </div>
+        <img class="solution-feature-img" src="/solucoes/totem-pf/painel-tv.webp" width="1200" height="675"
+          alt="Painel de senhas na TV do salão mostrando pedidos em preparo e prontos" loading="lazy" />
+      </article>
+
+      <div class="solution-grid">
+        <article class="solution-card">
+          <h3>Sistema de Presença</h3>
+          <p>Controle de presença, cadastro de membros e relatórios para igrejas e associações.</p>
+          <a href="/solucoes/presenca/">Conhecer →</a>
+        </article>
+        <article class="solution-card">
+          <h3>Professor de inglês com IA</h3>
+          <p>Conversação guiada e correção para escolas de idioma, com a marca da escola.</p>
+          <a href="/solucoes/ingles-com-ia/">Conhecer →</a>
+        </article>
+        <article class="solution-card">
+          <h3>Portal de Doações</h3>
+          <p>Campanhas, doações e prestação de contas para ONGs e redes de apoio.</p>
+          <a href="/solucoes/doacoes/">Conhecer →</a>
+        </article>
+        <article class="solution-card">
+          <h3>Estudo musical interativo</h3>
+          <p>Partitura, playback e transposição no navegador para escolas de música.</p>
+          <a href="/solucoes/estudo-musical/">Conhecer →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Produtos e Portfólio ═══ -->
+  <section class="section" id="produtos">
+    <div class="container">
+      <p class="eyebrow">Produtos e portfólio</p>
+      <h2 class="section-title">Projetos em produção e soluções que já entreguei</h2>
+      <p class="section-sub">Além da operação de infraestrutura, também crio sistemas do zero e mantenho produtos
+        completos.
+        Aqui estão alguns trabalhos ativos para você validar escopo e execução.</p>
+
+      <div class="showcase-grid">
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>Angella Barros Studio</h3>
+            <span class="showcase-status">No ar</span>
+          </div>
+          <p>Site, loja e agendamento online de um studio de beleza em Parintins/AM, com painel administrativo e
+            assistente virtual que consulta horários e marca atendimentos.</p>
+          <div class="showcase-tags">
+            <span>Node.js + Express</span>
+            <span>PostgreSQL</span>
+            <span>Agendamento</span>
+            <span>Chat com IA</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://angellabarros.com" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>Layla Vitoria Photography</h3>
+            <span class="showcase-status">No ar</span>
+          </div>
+          <p>Site de fotografia com galerias privadas para clientes, pacotes, pedidos e painel administrativo, com foco
+            em performance no mobile.</p>
+          <div class="showcase-tags">
+            <span>React + Vite</span>
+            <span>Express</span>
+            <span>Galerias de clientes</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://laylavitoria.com.br" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>IPDA</h3>
+            <span class="showcase-status">No ar</span>
+          </div>
+          <p>Sistema de controle de presença em produção, com autenticação, dashboard administrativo e dados em
+            tempo real via Firebase.</p>
+          <div class="showcase-tags">
+            <span>Next.js 15</span>
+            <span>TypeScript</span>
+            <span>Firebase</span>
+            <span>Tailwind</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://ipda.app.br" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>alieniatools</h3>
+            <span class="showcase-status">No ar</span>
+          </div>
+          <p>Professor de inglês com IA: conversação guiada, correção e acompanhamento do aluno, com cadastro e
+            login próprios.</p>
+          <div class="showcase-tags">
+            <span>IA Generativa</span>
+            <span>Node.js + TypeScript</span>
+            <span>PostgreSQL</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://alieniatools.com" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>Cadernim</h3>
+            <span class="showcase-status">No ar</span>
+          </div>
+          <p>Plataforma de estudo musical interativo: partitura no navegador, playback, transposição, controle de
+            andamento e leitura de partituras em PDF.</p>
+          <div class="showcase-tags">
+            <span>TypeScript</span>
+            <span>Web Audio</span>
+            <span>OMR</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://cadernim.com.br" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>Tecnofonia Ancestral</h3>
+            <span class="showcase-status">No ar</span>
+          </div>
+          <p>Site do coletivo cultural Tecnofonia Ancestral: página única, leve e rápida, com identidade visual
+            própria.</p>
+          <div class="showcase-tags">
+            <span>React + TypeScript</span>
+            <span>Vite</span>
+            <span>Site institucional</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://tecnofoniaancestral.com" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-head">
+            <h3>VerdeLedger</h3>
+            <span class="showcase-status is-soon">Startup · em breve</span>
+          </div>
+          <p>Minha startup: MRV e rastreabilidade de créditos de carbono florestais da Amazônia. Documentos com
+            impressão digital SHA-256, lotes registrados em blockchain e certificados que qualquer pessoa confere.</p>
+          <div class="showcase-tags">
+            <span>NestJS + PostgreSQL</span>
+            <span>Solidity · Polygon</span>
+            <span>IPFS</span>
+            <span>Next.js</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-ghost btn-sm" href="https://verdledger.app" target="_blank" rel="noopener">Ver
+              site</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="domain-list" aria-label="Outros domínios">
+        <a href="https://verdledger.app" target="_blank" rel="noopener">verdledger.app</a>
+        <a href="https://ecoflowmanaus.com.br" target="_blank" rel="noopener">ecoflowmanaus.com.br</a>
+      </div>
+
+      <div class="repo-strip">
+        <p>Quer ver mais projetos, histórico de commits e stack real de implementação? Meu repositório público está
+          sempre atualizado com os trabalhos ativos.</p>
+        <a class="btn btn-primary btn-sm" href="https://github.com/akillez01" target="_blank" rel="noopener">Ver
+          GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Quem cuida ═══ -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <p class="eyebrow">Quem cuida</p>
+      <h2 class="section-title">Achilles Oliveira</h2>
+
+      <div class="about">
+        <!-- TODO: trocar por uma foto de rosto quando disponível -->
+        <img src="./logo.jpg" alt="Achilles Oliveira" />
+        <div>
+          <p>
+            Sou Achilles Oliveira, analista de infraestrutura e cloud em Manaus. Atuo em duas frentes: DevOps
+            (infraestrutura, automação e operação) e criação de sistemas do zero para negócios que precisam tirar uma
+            ideia do papel com arquitetura sólida e entrega em produção.
+            Trabalho com servidor, banco de dados e automação em ambiente industrial de grande porte, onde parada
+            custa caro e backup não é opcional.
+          </p>
+          <div class="about-tags">
+            <span>PostgreSQL</span>
+            <span>Linux</span>
+            <span>AWS</span>
+            <span>GCP</span>
+            <span>Terraform</span>
+            <span>Plesk</span>
+            <span>Cloudflare</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Perguntas ═══ -->
+  <section class="section" id="perguntas">
+    <div class="container">
+      <p class="eyebrow">Perguntas</p>
+      <h2 class="section-title">Antes de você perguntar</h2>
+
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Preciso trocar meu site?</summary>
+          <p>Não. Na maioria dos casos migro o que existe e resolvo o que está errado por baixo.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Você atende site legado feito por outro desenvolvedor?</summary>
+          <p>Sim. WordPress não é minha stack principal, mas se precisar migrar eu faço o diagnóstico, o plano e a
+            migração com segurança.</p>
+        </details>
+        <details class="faq-item">
+          <summary>E se eu quiser sair?</summary>
+          <p>Aviso de 30 dias e você leva backup completo, acesso e domínio. Nada fica preso comigo.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Você atende fora de Manaus?</summary>
+          <p>Sim, todo o atendimento é remoto.</p>
+        </details>
+        <details class="faq-item">
+          <summary>O diagnóstico é gratuito mesmo?</summary>
+          <p>É. Leva cerca de 30 minutos do meu tempo e você fica com o documento mesmo que não contrate nada.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Quanto tempo leva a migração?</summary>
+          <p>De 2 a 5 dias úteis para site institucional, sem tirar o atual do ar durante o processo.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Fale comigo ═══ -->
+  <section class="section" id="contato">
+    <div class="container lead-grid">
+      <div>
+        <p class="eyebrow">Fale comigo</p>
+        <h2 class="section-title">Conte o que você precisa</h2>
+        <p class="section-sub">Eu respondo pelo WhatsApp, em geral no mesmo dia. Se preferir, escreva para
+          <a href="mailto:achilles.oliveira.souza@gmail.com">achilles.oliveira.souza@gmail.com</a>.</p>
+      </div>
+      <form class="lead-form" data-lead-form novalidate>
+        <div class="lead-row">
+          <label><span class="lead-label">Nome</span>
+            <input name="nome" autocomplete="name" maxlength="120" required />
+          </label>
+          <label><span class="lead-label">WhatsApp ou e-mail <small>(opcional)</small></span>
+            <input name="contato" autocomplete="tel" maxlength="120" />
+          </label>
+        </div>
+        <div class="lead-row">
+          <label><span class="lead-label">Seu segmento</span>
+            <select name="segmento">
+              <option value="">Escolha</option>
+                <option>Restaurante ou lanchonete</option>
+                <option>Igreja ou associação</option>
+                <option>Escola ou curso</option>
+                <option>ONG ou rede de apoio</option>
+                <option>Empresa ou comércio</option>
+                <option>Poder público</option>
+                <option>Outro</option>
+            </select>
+          </label>
+          <label><span class="lead-label">Interesse</span>
+            <select name="produto">
+              <option value="">Ainda não sei</option>
+                <option>Manutenção de site</option>
+                <option>Totem PF</option>
+                <option>Sistema de Presença</option>
+                <option>Professor de inglês com IA</option>
+                <option>Portal de Doações</option>
+                <option>Estudo musical interativo</option>
+                <option>Projeto sob medida</option>
+            </select>
+          </label>
+        </div>
+        <label><span class="lead-label">Mensagem <small>(opcional)</small></span>
+          <textarea name="mensagem" rows="3" maxlength="1000"></textarea>
+        </label>
+        <label class="lead-hp" aria-hidden="true">Não preencha
+          <input name="site" tabindex="-1" autocomplete="off" />
+        </label>
+        <button class="btn btn-primary" type="submit">Enviar e abrir o WhatsApp</button>
+        <p class="lead-status" data-lead-status role="status"></p>
+        <p class="lead-note">Seus dados ficam só comigo, para responder.
+          <a href="/privacidade/">Privacidade</a></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══ Fechamento ═══ -->
+  <section class="closing">
+    <div class="container">
+      <h2>Manda o endereço do seu site.</h2>
+      <p>Te devolvo em até 48h um diagnóstico com o que está exposto, o que é urgente e o que pode esperar.</p>
+      <a class="btn btn-primary"
+        href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Aqui%20est%C3%A1%20o%20endere%C3%A7o%20do%20meu%20site%3A%20"
+        target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="site-footer">
+    <div class="container">
+      <span>© 2026 Achilles Oliveira · Manaus, AM · Atendimento remoto</span>
+      <span>
+        <a href="mailto:achilles.oliveira.souza@gmail.com">Email</a> ·
+        <a href="https://wa.me/5592986366861" target="_blank" rel="noopener">WhatsApp</a> ·
+        <a href="/privacidade/">Privacidade</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- ═══ WhatsApp fixo (mobile) ═══ -->
+  <div class="wa-float">
+    <a class="btn btn-primary"
+      href="https://wa.me/5592986366861?text=Ol%C3%A1%20Achilles!%20Vim%20pelo%20site%2C%20quero%20falar%20sobre%20manuten%C3%A7%C3%A3o%20do%20meu%20site."
+      target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </div>
+
+  <script src="/lead.js"></script>
+  <script src="./motion.js"></script>
+  <script src="./theme.js"></script>
+  <script>
+    window.Motion.init().start();
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+node_modules
+.next
+dist
+.env
+.DS_Store
+
+# configuração local de deploy (host/usuário do servidor)
+scripts/*.env
