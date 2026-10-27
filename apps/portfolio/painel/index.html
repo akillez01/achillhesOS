@@ -34,6 +34,7 @@
     .painel-tabela th, .painel-tabela td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
     .painel-tabela th { font-size: 12px; color: var(--muted); font-weight: 600; white-space: nowrap; }
     .painel-tabela td.num { font-family: var(--mono); text-align: right; }
+    .painel-tabela th.num { text-align: right; }
     .painel-tabela tr:last-child td { border-bottom: 0; }
     .painel-tabela .sub { display: block; font-size: 12px; color: var(--muted); }
   </style>
@@ -68,7 +69,7 @@
         <h2>Por origem</h2>
         <div class="painel-tabela">
           <table>
-            <thead><tr><th>Origem</th><th>Formulários</th><th>Cliques no WhatsApp</th></tr></thead>
+            <thead><tr><th>Origem</th><th class="num">Formulários</th><th class="num">Cliques no WhatsApp</th></tr></thead>
             <tbody id="origens"></tbody>
           </table>
         </div>
