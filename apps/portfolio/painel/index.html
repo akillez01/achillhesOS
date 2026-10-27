@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Contatos do site | Achilles Oliveira</title>
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-round.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/site.css" />
+  <style>
+    .painel { padding: 40px 0 64px; }
+    .painel h1 { font-family: var(--serif); font-size: 30px; font-weight: 600; margin-bottom: 18px; }
+    .painel-barra { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin-bottom: 22px; }
+    .painel-barra label { display: grid; gap: 6px; font-size: 13px; font-weight: 600; }
+    .painel-barra input, .painel-barra select {
+      font: inherit; font-size: 14px; color: var(--ink); background: transparent;
+      border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; min-width: 0;
+    }
+    .painel-barra select option { color: #0b1a11; }
+    .painel-msg { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
+    .painel-resumo { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 28px; }
+    .painel-resumo div { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+    .painel-resumo b { display: block; font-size: 24px; font-family: var(--mono); font-weight: 500; }
+    .painel-resumo span { font-size: 12.5px; color: var(--muted); }
+    .painel h2 { font-family: var(--serif); font-size: 19px; font-weight: 600; margin: 26px 0 10px; }
+    .painel-tabela { width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+    .painel-tabela table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    .painel-tabela th, .painel-tabela td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .painel-tabela th { font-size: 12px; color: var(--muted); font-weight: 600; white-space: nowrap; }
+    .painel-tabela td.num { font-family: var(--mono); text-align: right; }
+    .painel-tabela tr:last-child td { border-bottom: 0; }
+    .painel-tabela .sub { display: block; font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+
+<body>
+  <main class="painel">
+    <div class="container">
+      <h1>Contatos do site</h1>
+
+      <form class="painel-barra" id="acesso">
+        <label>Token do painel
+          <input id="token" type="password" autocomplete="current-password" size="28" />
+        </label>
+        <label>Período
+          <select id="dias">
+            <option value="7">7 dias</option>
+            <option value="30" selected>30 dias</option>
+            <option value="90">90 dias</option>
+            <option value="365">12 meses</option>
+          </select>
+        </label>
+        <button class="btn btn-primary btn-sm" type="submit">Carregar</button>
+        <button class="btn btn-ghost btn-sm" type="button" id="csv" disabled>Baixar CSV</button>
+      </form>
+
+      <p class="painel-msg" id="msg" role="status">Informe o token para ver os contatos.</p>
+
+      <div id="conteudo" hidden>
+        <div class="painel-resumo" id="resumo"></div>
+
+        <h2>Por origem</h2>
+        <div class="painel-tabela">
+          <table>
+            <thead><tr><th>Origem</th><th>Formulários</th><th>Cliques no WhatsApp</th></tr></thead>
+            <tbody id="origens"></tbody>
+          </table>
+        </div>
+
+        <h2>Contatos</h2>
+        <div class="painel-tabela">
+          <table>
+            <thead><tr><th>Quando</th><th>Tipo</th><th>Pessoa</th><th>Interesse</th><th>Origem</th><th>Página</th></tr></thead>
+            <tbody id="lista"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (() => {
+      const $ = (id) => document.getElementById(id);
+      const CHAVE = 'ao-painel-token';
+      try { $('token').value = sessionStorage.getItem(CHAVE) || ''; } catch { /* sem storage */ }
+
+      const origemDe = (c) => {
+        if (c.utm_source) return [c.utm_source, c.utm_medium, c.utm_campaign].filter(Boolean).join(' / ');
+        if (c.referrer) { try { return new URL(c.referrer).host.replace(/^www\./, ''); } catch { return c.referrer; } }
+        return 'direto';
+      };
+      const quando = (iso) => new Date(iso).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
+      const celula = (tr, texto, sub, cls) => {
+        const td = document.createElement('td');
+        if (cls) td.className = cls;
+        td.textContent = texto ?? '';
+        if (sub) { const s = document.createElement('span'); s.className = 'sub'; s.textContent = sub; td.append(s); }
+        tr.append(td);
+      };
+
+      const pedir = (formato) => fetch(`/api/leads?dias=${$('dias').value}${formato ? '&formato=' + formato : ''}`, {
+        headers: { Authorization: `Bearer ${$('token').value.trim()}` },
+      });
+
+      const carregar = async () => {
+        $('msg').textContent = 'Carregando…';
+        try { sessionStorage.setItem(CHAVE, $('token').value.trim()); } catch { /* sem storage */ }
+        const r = await pedir();
+        if (!r.ok) {
+          const e = await r.json().catch(() => ({}));
+          $('msg').textContent = e.erro || `Erro ${r.status}`;
+          $('conteudo').hidden = true;
+          $('csv').disabled = true;
+          return;
+        }
+        const { contatos } = await r.json();
+        const forms = contatos.filter((c) => c.tipo === 'formulario');
+        const cliques = contatos.filter((c) => c.tipo === 'whatsapp');
+
+        $('resumo').innerHTML = '';
+        for (const [n, t] of [[forms.length, 'formulários enviados'], [cliques.length, 'cliques no WhatsApp'],
+          [new Set(contatos.map(origemDe)).size, 'origens diferentes']]) {
+          const d = document.createElement('div');
+          const b = document.createElement('b'); b.textContent = n;
+          const s = document.createElement('span'); s.textContent = t;
+          d.append(b, s); $('resumo').append(d);
+        }
+
+        const porOrigem = new Map();
+        for (const c of contatos) {
+          const o = origemDe(c);
+          const v = porOrigem.get(o) || { f: 0, w: 0 };
+          c.tipo === 'formulario' ? v.f++ : v.w++;
+          porOrigem.set(o, v);
+        }
+        $('origens').innerHTML = '';
+        [...porOrigem].sort((a, b) => (b[1].f - a[1].f) || (b[1].w - a[1].w)).forEach(([o, v]) => {
+          const tr = document.createElement('tr');
+          celula(tr, o); celula(tr, v.f, null, 'num'); celula(tr, v.w, null, 'num');
+          $('origens').append(tr);
+        });
+
+        $('lista').innerHTML = '';
+        for (const c of contatos) {
+          const tr = document.createElement('tr');
+          celula(tr, quando(c.criado_em));
+          celula(tr, c.tipo === 'formulario' ? 'Formulário' : 'WhatsApp');
+          celula(tr, c.nome || '—', [c.contato, c.segmento].filter(Boolean).join(' · '));
+          celula(tr, c.produto || '—', c.mensagem);
+          celula(tr, origemDe(c));
+          celula(tr, c.pagina);
+          $('lista').append(tr);
+        }
+
+        $('msg').textContent = contatos.length ? `${contatos.length} registros no período.` : 'Nenhum registro no período.';
+        $('conteudo').hidden = !contatos.length;
+        $('csv').disabled = !contatos.length;
+      };
+
+      $('acesso').addEventListener('submit', (ev) => { ev.preventDefault(); carregar().catch(() => { $('msg').textContent = 'Falha de conexão.'; }); });
+      $('dias').addEventListener('change', () => { if ($('token').value) $('acesso').requestSubmit(); });
+      $('csv').addEventListener('click', async () => {
+        const r = await pedir('csv');
+        if (!r.ok) { $('msg').textContent = `Erro ${r.status} ao gerar o CSV.`; return; }
+        const url = URL.createObjectURL(await r.blob());
+        const a = Object.assign(document.createElement('a'), { href: url, download: `contatos-${$('dias').value}d.csv` });
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      });
+      if ($('token').value) $('acesso').requestSubmit();
+    })();
+  </script>
+</body>
+
+</html>
