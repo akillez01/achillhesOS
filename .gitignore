@@ -3,3 +3,6 @@ node_modules
 dist
 .env
 .DS_Store
+
+# configuração local de deploy (host/usuário do servidor)
+scripts/*.env
